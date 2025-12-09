@@ -1,0 +1,61 @@
+name: バス価格監視
+
+on:
+  schedule:
+    # 毎時0分に実行（UTC時間）
+    - cron: '0 * * * *'
+  workflow_dispatch:  # 手動実行も可能
+  push:  # pushされた時も実行（初回テスト用）
+    branches:
+      - main
+      - master
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: チェックアウト
+      uses: actions/checkout@v4
+      
+    - name: Pythonセットアップ
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        
+    - name: 依存関係インストール
+      run: |
+        pip install requests beautifulsoup4
+        
+    - name: バス価格チェック
+      env:
+        DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+      run: |
+        python bus_price_monitor.py
+        
+    - name: 価格履歴を保存
+      run: |
+        git config user.name "GitHub Actions Bot"
+        git config user.email "actions@github.com"
+        git add prices.json || true
+        git commit -m "Update price data [skip ci]" || true
+        git push || true
+```
+
+4. 下部の「Commit new file」をクリック
+
+#### ステップ2: .gitignore を作成（オプション - なくてもOK）
+
+1. 「Add file」→「Create new file」
+2. ファイル名: `.gitignore`
+3. 以下の内容をペースト:
+```
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Project specific
+prices_demo.json
+screenshot.png
+page.html
