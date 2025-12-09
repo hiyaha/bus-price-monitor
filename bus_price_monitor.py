@@ -126,7 +126,7 @@ class BusPriceMonitor:
         else:
             # 初回
             color = 0x0000ff  # 青色
-            title = "🚌 12/15バス価格(通知1h毎)"
+            title = "🚌 12/15夜行便(1h毎監視)"
             description = ""
         
         # Discord埋め込みメッセージを作成
