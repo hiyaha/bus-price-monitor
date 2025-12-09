@@ -228,7 +228,7 @@ class BusPriceMonitor:
 def main():
     # 設定
     URL = "https://www.489.fm/searchbus/tokyo_akita/_/day20251215/"
-    WEBHOOK_URL = os.environ.get('DISCORD_WEBHOOK_URL', '')
+    WEBHOOK_URL = "https://discord.com/api/webhooks/1448050592848281612/Y6rkHw3VEQLL-wxyF1J7UUBNU4_tT6C8xHLu55b85rsx6ECIIoT3hJDppxj82KEiHJHK"  # ここにDiscord Webhook URLを設定
     
     monitor = BusPriceMonitor(URL, WEBHOOK_URL)
     monitor.check_and_notify()
