@@ -126,7 +126,7 @@ class BusPriceMonitor:
         else:
             # 初回
             color = 0x0000ff  # 青色
-            title = "🚌 監視開始"
+            title = "🚌 12/15バス価格(通知1h毎)"
             description = ""
         
         # Discord埋め込みメッセージを作成
@@ -136,7 +136,7 @@ class BusPriceMonitor:
             "color": color,
             "fields": [
                 {
-                    "name": "現在の価格(非会員)",
+                    "name": "現在の最安価格(非会員)",
                     "value": f"**{min_price:,}円**",
                     "inline": False
                 },
