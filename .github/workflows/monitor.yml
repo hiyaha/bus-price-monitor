@@ -40,22 +40,4 @@ jobs:
         git add prices.json || true
         git commit -m "Update price data [skip ci]" || true
         git push || true
-```
 
-4. 下部の「Commit new file」をクリック
-
-#### ステップ2: .gitignore を作成（オプション - なくてもOK）
-
-1. 「Add file」→「Create new file」
-2. ファイル名: `.gitignore`
-3. 以下の内容をペースト:
-```
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-
-# Project specific
-prices_demo.json
-screenshot.png
-page.html
