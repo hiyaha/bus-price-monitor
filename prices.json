@@ -1,11 +1,11 @@
 {
   "status": "success",
   "prices": [
-    7000,
+    6500,
     8000,
     9000
   ],
-  "min_price": 7000,
+  "min_price": 6500,
   "max_price": 9000,
-  "timestamp": "2025-12-14T06:26:16.683504"
+  "timestamp": "2025-12-14T07:16:46.547856"
 }
